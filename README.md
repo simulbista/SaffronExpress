@@ -1,4 +1,4 @@
-Restaurant Application (Dish Entity)
+Saffron Express - A Spring Boot Restaurant Application (Dish Entity)
 
 Tools and Technologies Used:
 1)Spring Boot
@@ -15,3 +15,4 @@ Features:
 4)Sort dishes by id,name,category or price
 5)Pagination
 6)User and Admin user role authentication and authorization
+7)Custom Registration (save registration to H2)
