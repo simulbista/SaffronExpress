@@ -35,7 +35,6 @@ public class AuthController implements ErrorController {
     @GetMapping("/login")
     public String login(Model model, @RequestParam(required = false) String msg){
         model.addAttribute("msg", msg);
-        System.out.println("Hello from login" + msg);
         return "auth/login";
     }
 
@@ -49,7 +48,6 @@ public class AuthController implements ErrorController {
 
     @GetMapping("/register")
     public String register(Model model, @RequestParam(required = false) String msg){
-        System.out.println("I am at register get!");
         model.addAttribute("msg", msg);
         model.addAttribute("user", new MyUser());
         return "auth/register";
@@ -57,14 +55,11 @@ public class AuthController implements ErrorController {
 
     @PostMapping("/register")
     public String registerPost(@ModelAttribute MyUser user){
-        System.out.println("I am at register post!" + user.getUsername() + " " + user.getPassword() + " " + user.getRole());
         //save user to database
         int saveUserCode = userService.saveUser(user);
         if(saveUserCode == 0){
-            System.out.println("registration failed!");
             return "redirect:/register?msg=User already exists!";
         }else{
-            System.out.println("registration success!");
             return "redirect:/login?msg=User registration successful!";
         }
     }

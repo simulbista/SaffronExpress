@@ -35,7 +35,7 @@ public class SecurityConfig {
                 ).formLogin(httpSecurityFormLoginConfigurer -> {
                     httpSecurityFormLoginConfigurer.loginPage("/login").permitAll();
                 })
-                .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/restaurant/home/").permitAll());
+                .logout(logout -> logout.logoutUrl("/logout").permitAll());
         return http.build();
     }
 
